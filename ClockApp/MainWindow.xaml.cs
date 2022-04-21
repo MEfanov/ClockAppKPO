@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ClockLib;
 
 namespace ClockApp
 {
@@ -24,17 +25,22 @@ namespace ClockApp
         {
             InitializeComponent();
 
-            PermClock.Time = TimeOnly.FromDateTime(DateTime.Now);
+            TimeZoneExpander.Header = TimeZoneInfo.Local;
 
-            System.Windows.Threading.DispatcherTimer dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
-            dispatcherTimer.Tick += dispatcherTimer_Tick;
-            dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
-            dispatcherTimer.Start();
+            foreach(TimeZoneInfo? info in TimeZoneInfo.GetSystemTimeZones())
+            {
+                Button btn = new Button();
+                btn.Content = info;
+                btn.Click += TimeZoneButton_Click;
+                TimeZonePanel.Children.Add(btn);
+            }
         }
 
-        private void dispatcherTimer_Tick(object? sender, EventArgs e)
+        private void TimeZoneButton_Click(object sender, RoutedEventArgs e)
         {
-            PermClock.Time = TimeOnly.FromDateTime(DateTime.Now);
+            TimeZoneInfo? info = (TimeZoneInfo)(((Button)sender).Content);
+            AppClock.TimeZoneId = info.Id;
+            TimeZoneExpander.Header = info;
         }
     }
 }

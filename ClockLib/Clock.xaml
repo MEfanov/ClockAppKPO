@@ -6,12 +6,12 @@
              xmlns:local="clr-namespace:ClockLib"
              mc:Ignorable="d" 
              d:DesignHeight="400" d:DesignWidth="400" SizeChanged="UserControl_SizeChanged">
-    <Canvas x:Name="Background" Background="Transparent" Loaded="Background_Loaded">
-        <Ellipse x:Name="Body" Height="{Binding ElementName=Background,Path=ActualHeight}" 
-                 Width="{Binding ElementName=Background,Path=ActualWidth}" Fill="White"/>
+    <Canvas x:Name="BackgroundArea" Background="Transparent" Loaded="Background_Loaded">
+        <Ellipse x:Name="Body" Height="{Binding ElementName=BackgroundArea,Path=ActualHeight}" 
+                 Width="{Binding ElementName=BackgroundArea,Path=ActualWidth}" Fill="White"/>
         <Line x:Name="SecondsLine" Stroke="Black" StrokeThickness="1" StrokeEndLineCap="Triangle" StrokeStartLineCap="Round"/>
         <Line x:Name="MinutesLine" Stroke="Black" StrokeThickness="2" StrokeEndLineCap="Triangle" StrokeStartLineCap="Round"/>
         <Line x:Name="HoursLine" Stroke="Black" StrokeThickness="3" StrokeEndLineCap="Triangle" StrokeStartLineCap="Round"/>
-        <Ellipse x:Name="CenterPoint" Stroke="Black" Fill="Black"/>
+        <Ellipse x:Name="CenterPoint" Fill="Black"/>
     </Canvas>
 </UserControl>

@@ -7,7 +7,20 @@
         xmlns:local="clr-namespace:ClockApp"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid Background="LightBlue">
-        <clck:Clock x:Name="PermClock"/>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Expander x:Name="TimeZoneExpander" Grid.Row="0" Grid.RowSpan="2" VerticalAlignment="Top" Background="White" Panel.ZIndex="1" 
+                  BorderBrush="Black">
+            <ScrollViewer Height="auto" MaxHeight="120">
+                <StackPanel x:Name="TimeZonePanel">
+                    
+                </StackPanel>
+            </ScrollViewer>
+        </Expander>
+        <clck:Clock x:Name="AppClock" Grid.Column="1" Interval="0:0:0:0.01" Snap="False" Grid.Row="1" IsRunning="True"
+                    Stroke="Black" Fill="AliceBlue" Margin="5"/>
     </Grid>
 </Window>
