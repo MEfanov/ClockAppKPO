@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ClockLib\ClockLib.csproj" />
+    <ProjectReference Include="..\ColorPickerLib\ColorPickerLib.csproj" />
   </ItemGroup>
 
 </Project>

@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ClockLib;
+using ColorPickerLib;
 
 namespace ClockApp
 {
@@ -41,6 +42,42 @@ namespace ClockApp
             TimeZoneInfo? info = (TimeZoneInfo)(((Button)sender).Content);
             AppClock.TimeZoneId = info.Id;
             TimeZoneExpander.Header = info;
+        }
+
+        private void ClockContextMenu_ChangeBackground_Click(object sender, RoutedEventArgs e)
+        {
+            ColorPickWindow colorPickWindow = new ColorPickWindow();
+            colorPickWindow.ShowDialog();
+            
+            if(colorPickWindow.Picked)
+                AppClock.Background = new SolidColorBrush(colorPickWindow.Color);
+        }
+
+        private void ClockContextMenu_ChangeFill_Click(object sender, RoutedEventArgs e)
+        {
+            ColorPickWindow colorPickWindow = new ColorPickWindow();
+            colorPickWindow.ShowDialog();
+
+            if (colorPickWindow.Picked)
+                AppClock.Fill = new SolidColorBrush(colorPickWindow.Color);
+        }
+
+        private void ClockContextMenu_ChangeArrowBrush_Click(object sender, RoutedEventArgs e)
+        {
+            ColorPickWindow colorPickWindow = new ColorPickWindow();
+            colorPickWindow.ShowDialog();
+
+            if (colorPickWindow.Picked)
+                AppClock.ArrowBrush = new SolidColorBrush(colorPickWindow.Color);
+        }
+
+        private void ClockContextMenu_ChangeMarkBrush_Click(object sender, RoutedEventArgs e)
+        {
+            ColorPickWindow colorPickWindow = new ColorPickWindow();
+            colorPickWindow.ShowDialog();
+
+            if (colorPickWindow.Picked)
+                AppClock.MarkBrush = new SolidColorBrush(colorPickWindow.Color);
         }
     }
 }

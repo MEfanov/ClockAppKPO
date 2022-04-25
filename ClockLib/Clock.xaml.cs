@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace ClockLib
 {
-    /// <summary>
-    /// Логика взаимодействия для Clock.xaml
-    /// </summary>
     public partial class Clock : UserControl
     {
         private double secondsLineStart_RelativePosition = 0.2;
@@ -149,7 +146,7 @@ namespace ClockLib
             }
         }
 
-        public Brush? MarksBrush
+        public Brush? MarkBrush
         {
             get
             {

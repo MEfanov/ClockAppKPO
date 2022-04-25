@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:clck="clr-namespace:ClockLib;assembly=ClockLib"
+        xmlns:cp="clr-namespace:ColorPickerLib;assembly=ColorPickerLib"
         xmlns:local="clr-namespace:ClockApp"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
@@ -16,11 +17,24 @@
                   BorderBrush="Black">
             <ScrollViewer Height="auto" MaxHeight="120">
                 <StackPanel x:Name="TimeZonePanel">
-                    
+
                 </StackPanel>
             </ScrollViewer>
         </Expander>
         <clck:Clock x:Name="AppClock" Grid.Column="1" Interval="0:0:0:0.01" Snap="False" Grid.Row="1" IsRunning="True"
-                    Stroke="Black" Fill="AliceBlue" Margin="5"/>
+                    Stroke="Black" Fill="AliceBlue" Margin="5">
+            <clck:Clock.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Поменять цвет фона" 
+                              Click="ClockContextMenu_ChangeBackground_Click"/>
+                    <MenuItem Header="Поменять цвет часов" 
+                              Click="ClockContextMenu_ChangeFill_Click"/>
+                    <MenuItem Header="Поменять цвет стрелок"
+                              Click="ClockContextMenu_ChangeArrowBrush_Click"/>
+                    <MenuItem Header="Поменять цвет отметок"
+                              Click="ClockContextMenu_ChangeMarkBrush_Click"/>
+                </ContextMenu>
+            </clck:Clock.ContextMenu>
+        </clck:Clock>
     </Grid>
 </Window>
